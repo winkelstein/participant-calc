@@ -11,8 +11,8 @@ from telethon.tl.types import (
 
 
 # Setting configuration values
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
+API_ID = int(input("Enter API_ID: "))
+API_HASH = input("Enter API_HASH: ")
 
 # Create the client and connect
 client = TelegramClient('session', api_id=API_ID, api_hash=API_HASH)
@@ -22,7 +22,7 @@ async def main():
     await client.start()
     print("Client Created")
 
-    user_input_channel = input("enter entity(telegram URL or entity id):")
+    user_input_channel = input("Enter telegram URL for group or channel: ")
 
     if user_input_channel.isdigit():
         entity = PeerChannel(int(user_input_channel))
